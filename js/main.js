@@ -1,38 +1,33 @@
 
 
 
-let gameOutcome;
+let gameOutcome; // created a variable to determine winner
 
-function roundOne(){
+function roundOne(){ // function for the game to play one round
 
-    let userChoice = prompt("Please enter either rock, paper or scissors")
+    let userChoice = prompt("Please enter either rock, paper or scissors") // created a variable which stores what the user inputs through prompt
 
-    userChoice = userChoice.toLowerCase()
+    userChoice = userChoice.toLowerCase() // converts whatever the user types into lowercase to prevent mismatch
 
-    console.log(userChoice)
+    console.log(userChoice) // displays what the user selected
 
     let computerChoices = ["rock","paper", "scissors"] // created an array with the three choices of RPS
     
     let computerChoice = computerChoices[Math.floor(Math.random()* 3)] // randomise the number in [], so that it cycles between 0-2  selecting each option at random. math floor makes sure that is a whole number, and math random picks a number between 0-3
 
-    console.log(computerChoice)
+    console.log(computerChoice) // displays the computer choice
 
     
 
-    if (userChoice === "paper" && computerChoice === "rock"){
-        gameOutcome = "a"
-        console.log("User has won the game")
-    } else if (userChoice === "scissors" && computerChoice ==="paper"){
-        gameOutcome = "a"
-        console.log("User has won the game")
-    } else if (userChoice ==="rock" && computerChoice ==="scissors"){
-        gameOutcome = "a"
-        console.log("User has won the game")
-    } else if (userChoice === computerChoice){
-        console.log("It is a draw")
+    if (userChoice === "paper" && computerChoice === "rock"){ // if the user picks paper & computer picks rock
+        gameOutcome = "a" // the game outcome will be a - which is the user wins and it helps me add score as i used it as a condition
+    } else if (userChoice === "scissors" && computerChoice ==="paper"){ // if the user picks scissors and computer picks paper
+        gameOutcome = "a" // the game outcome will be a - which is the user wins and it helps me add score as i used it as a condition
+    } else if (userChoice ==="rock" && computerChoice ==="scissors"){ //if the user picks rock and the computer picks scissors
+        gameOutcome = "a" // the game outcome will be a - which is the user wins and it helps me add score as i used it as a condition
+    } else if (userChoice === computerChoice){ // if the user picks the same as the computer which is a draw
     } else{
-        gameOutcome = "b"
-        console.log("Computer has won the game")
+        gameOutcome = "b" // the game outcome will be a - which is the user wins and it helps me add score as i used it as a condition
     }
 }
 
@@ -45,16 +40,26 @@ function multipleRounds(){
         roundOne()
 
         if(gameOutcome === "a"){
-            console.log(`1 point to the User`)
             userScore++
+            console.log(`1 point to the User, the current score is User: ${userScore} & Computer ${compScore}`)
+            
         } else if (gameOutcome === "b"){
-            console.log(`1 point to the computer`)
             compScore++
+            console.log(`1 point to the computer, the current score is User: ${userScore} & Computer ${compScore}`)
+           
         } else{
             console.log("It's a draw! No points scored")
         }
     }
 
+
+    if (userScore > compScore){
+        console.log(`The winner is the user!`)
+    } else if (compScore > userScore){
+        console.log(`The computer has won!`)
+    } else{
+        console.log("It's a draw!")
+    }
     console.log(`The final score is User: ${userScore} & Computer ${compScore}`)
 }
 
