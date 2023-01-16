@@ -20,18 +20,18 @@ function roundOne(){
     
 
     if (userChoice === "paper" && computerChoice === "rock"){
-        gameOutcome = true
+        gameOutcome = "a"
         console.log("User has won the game")
     } else if (userChoice === "scissors" && computerChoice ==="paper"){
-        gameOutcome = true
+        gameOutcome = "a"
         console.log("User has won the game")
     } else if (userChoice ==="rock" && computerChoice ==="scissors"){
-        gameOutcome = true
+        gameOutcome = "a"
         console.log("User has won the game")
     } else if (userChoice === computerChoice){
         console.log("It is a draw")
     } else{
-        gameOutcome = false
+        gameOutcome = "b"
         console.log("Computer has won the game")
     }
 }
@@ -44,12 +44,14 @@ function multipleRounds(){
     for(let i = 1; i <= 5; i++){
         roundOne()
 
-        if(gameOutcome = false){
+        if(gameOutcome === "a"){
             console.log(`1 point to the User`)
             userScore++
-        } else if (gameOutcome = true){
+        } else if (gameOutcome === "b"){
             console.log(`1 point to the computer`)
             compScore++
+        } else{
+            console.log("It's a draw! No points scored")
         }
     }
 
