@@ -63,5 +63,5 @@ function multipleRounds(){
     console.log(`The final score is User: ${userScore} & Computer ${compScore}`)
 }
 
-multipleRounds()
+
 

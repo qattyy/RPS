@@ -1,0 +1,13 @@
+h1{
+    text-align: center;
+}
+
+.RPS{
+    display:flex;
+    height:400px;
+    width:400px;
+    align-content: space-between;
+    gap:100px;
+    padding-left: 150px;
+    padding-top: 150px;
+}
