@@ -2,16 +2,45 @@
 <html lang="en">
 	<head>
     	<meta charset="utf-8">
-    	<meta name="description" content="This is where your description goes">
-    	<meta name="keywords" content="one, two, three">
+		<link rel="stylesheet" href="js/style.css">
 
-		<title>Title in the tab</title>
+
+		<title>qatty's RPS</title>
 	</head>
 	<body>
 
+		<h1>Rock Paper Scissors World Championships</h1>
 
-		<h2></h2>
 
+
+
+
+		<h2>Please select either Rock, Paper or Scissors! Whoever gets the most points in 5 rounds wins!</h2>
+
+		<p id = "rounds"></p>
+
+		<div class = "RPS">
+
+		<button id ="userBtn" data-selection = "rock">✊</button>
+		<button id ="userBtn" data-selection="paper">📄</button>
+		<button id ="userBtn" data-selection="scissors">✂️</button>
+
+		</div> 
+
+
+
+
+
+		<h3 id = "results"></h3>
+		<h4 id = "finalresults"></h4>
+		<h5 id = "finalfinalresults"></h5>
+
+		<div id = "restartDiv">
+		<button id = "restartBtn">Restart Game</button>
+		</div>
+		
 		<script type="text/javascript" src="js/main.js"></script>
+
 	</body>
+
 </html>
