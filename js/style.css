@@ -2,12 +2,22 @@ h1{
     text-align: center;
 }
 
+
 .RPS{
     display:flex;
-    height:400px;
-    width:400px;
-    align-content: space-between;
+    justify-content: center;
     gap:100px;
-    padding-left: 150px;
-    padding-top: 150px;
+}
+
+#userBtn {
+    background:none;
+    border: none;
+    outline:none;
+    cursor:pointer;
+    font-size:2rem;
+    transition: 100ms;
+}
+
+#userBtn:hover{
+    transform:scale(2,2)
 }
