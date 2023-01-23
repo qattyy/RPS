@@ -1,38 +1,58 @@
 let gameOutcome; // created a variable to determine winner
 let userScore = 0;
 let compScore = 0;
+let roundPlayed = 0;
 
-
-
+// Gameplay functionality of RPS
 function roundOne(userChoice,computerChoice){ // function for the game to play one round
 
-    /* if (userChoice === "paper" && computerChoice === "rock"){ // if the user picks paper & computer picks rock
-        gameOutcome = "a" // the game outcome will be a - which is the user wins and it helps me add score as i used it as a condition
-        console.log("Player wins")
-    } else if (userChoice === "scissors" && computerChoice ==="paper"){ // if the user picks scissors and computer picks paper
-        gameOutcome = "a" // the game outcome will be a - which is the user wins and it helps me add score as i used it as a condition
-        (console.log("Player Wins"))
-    } else if (userChoice ==="rock" && computerChoice ==="scissors"){ //if the user picks rock and the computer picks scissors
-        gameOutcome = "a" // the game outcome will be a - which is the user wins and it helps me add score as i used it as a condition
-        console.log("Player Wins")
-    } else if (userChoice === computerChoice){ // if the user picks the same as the computer which is a draw
-    } else{
-        gameOutcome = "b" // the game outcome will be a - which is the computer wins and it helps me add score as i used it as a condition
-    } */
-
-
     if (userChoice === "paper" && computerChoice === "rock" || userChoice === "scissors" && computerChoice === "paper" || userChoice === "rock" && computerChoice === "scissors"){
-        console.log("Player Wins!")
+        userScore++
+        document.querySelector('#results').innerText = `You win! your score is now ${userScore} and Computer Score is ${compScore}`
+        
     } else if (userChoice === computerChoice){
-        console.log("It's a draw!")
+        compScore++
+        document.querySelector('#results').innerText = `You lose! your score is now ${userScore} and Computer Score is ${compScore}`
     } else{
-        console.log("Computer Wins!")
+        document.querySelector('#results').innerText = `You draw! your score is now ${userScore} and Computer Score is ${compScore}`
     }
 
+    roundPlayed++
+
+    document.querySelector('#rounds').innerText = `Round ${roundPlayed}`
+
+    if(roundPlayed === 5){
+        document.getElementById("restartBtn").style.display = "block";
+        document.querySelector('#results').innerText = `The final score is User: ${userScore} & Computer ${compScore}`;
+        if (userScore > compScore){
+            document.querySelector('#finalfinalresults').innerText = `Congrats! You won! Please restart the game by pressing the button below!`;
+        } else if (compScore > userScore){
+            document.querySelector('#finalfinalresults').innerText = `The winner is the computer! Please restart the game by pressing the button below!`;
+        } else{
+            document.querySelector('#finalfinalresults').innerText = `It's a draw! Please restart the game by pressing the button below!`;
+        }
+    }
 }
 
+document.querySelector('#restartBtn').addEventListener('click', restartGame)
+document.getElementById("restartBtn").style.display = "none";
+
+function restartGame(){
+    userScore = 0;
+    compScore = 0;
+    roundPlayed = 0;
+    document.querySelector('#finalfinalresults').innerText = "";
+    document.querySelector('#results').innerText = ``;
+    document.querySelector('#rounds').innerText = ``
+    document.getElementById("restartBtn").style.display = "none";
+}
+
+
+
+//assigning a variable to ALL of the buttons created in HTML
 const userSelection = document.querySelectorAll('[data-selection]') // assign the variable userSelection to the buttons declared in html, data selection would select the data selections declared in html.
 
+//Loops through each button, makes them clickable and also console logs what the user selects
     userSelection.forEach(userSelect => { // for each of the data selection, i.e. rock, paper, scissors. which is now in an array, select each one and do the below to them
         userSelect.addEventListener('click', e => { // makes the buttons clickable and assigns the function of e which is the event
         const selectionName = userSelect.dataset.selection // assigns a variable to each ONE of the dataselections, so this will either equal rock,paper, or scissors.
@@ -46,41 +66,8 @@ const userSelection = document.querySelectorAll('[data-selection]') // assign th
     })
 })
 
+
 function makeSelection(selection){
     console.log(selection)
 }
 
-
-
-
-
-
-
-
-    function multipleRounds(){
-    for(let i = 1; i <= 5; i++){
-        roundOne()
-
-        if(gameOutcome === "a"){
-            userScore++
-            console.log(`1 point to the User, the current score is User: ${userScore} & Computer ${compScore}`)
-            
-        } else if (gameOutcome === "b"){
-            compScore++
-            console.log(`1 point to the computer, the current score is User: ${userScore} & Computer ${compScore}`)
-           
-        } else{
-            console.log("It's a draw! No points scored")
-        }
-    }
-
-
-    if (userScore > compScore){
-        console.log(`The winner is the user!`)
-    } else if (compScore > userScore){
-        console.log(`The computer has won!`)
-    } else{
-        console.log("It's a draw!")
-    }
-    console.log(`The final score is User: ${userScore} & Computer ${compScore}`)
-}

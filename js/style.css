@@ -21,3 +21,39 @@ h1{
 #userBtn:hover{
     transform:scale(2,2)
 }
+
+h2{
+    text-align: center;
+}
+
+#results{
+    text-align: center;
+    color: red;
+}
+
+#rounds{
+    text-align: center;
+    color: cornflowerblue;
+}
+
+#finalresults{
+    text-align: center;
+    color: green;
+}
+
+#finalfinalresults{
+    text-align: center;
+    color: crimson;
+    font-size: 3em;
+}
+
+#restartDiv{
+    display: flex;
+    justify-content: center;
+}
+
+#restartBtn{
+    font-size: 3rem;
+}
+
+
